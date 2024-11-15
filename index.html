@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Functions Demo</title>
+    <style>
+
+        body{
+            font-size:20px;
+            font-weight:600;
+        }
+        .containers{
+            display:flex;
+            justify-content: center;
+        }
+
+         /* General styling for all animated boxes */
+        .different {
+            display: flex;
+            height:400px;
+            width:600px;
+            flex-wrap:wrap;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 130px;
+            margin-left:30px;
+            /* border:2px solid black; */
+             
+        }
+
+        /* General styling for all boxes */
+         .box {
+            padding: 20px;
+            margin: 15px;
+            width: 300px;
+            height:40px;
+            text-align: center;
+            border-radius: 8px;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Example container styling */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 90px;
+        }
+        .box2 {
+            width: 150px;
+            height: 150px;
+            background-color: #4682b4;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        
+        /* 1. Using rotate() for rotation */
+        .rotate-example {
+            background-color: #ADD8E6; /* Light blue */
+            padding: 20px;
+            margin: 10px;
+            width: 80%;
+            text-align: center;
+            transform: rotate(15deg);
+        }
+      
+
+        /* 2. Using skew() to tilt the box */
+        .skew-example {
+            background-color: #FFB6C1; /* Light pink */
+            padding: 20px;
+            margin: 10px;
+            width: 80%;
+            text-align: center;
+            transform: skew(10deg, 5deg); /* Skew 10deg horizontally, 5deg vertically */
+        }
+
+
+
+         /* 3. Using box-shadow() for shadow effect */
+         .shadow-box {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            width: 80%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+          /* 4. Using text-shadow() for text glow effect */
+          .text-shadow {
+            font-size: 24px;
+            color: #333;
+            text-shadow: 2px 2px 5px #ff4500;
+            padding: 20px;
+            text-align: center;
+            
+        }
+
+         /* 5. linear-gradient() for smooth transitions between colors */
+         .gradient {
+            background: linear-gradient(-230deg, #ff8c00a6, #ffd900a4,rgba(246, 236, 236,    0.684));
+            color: white;
+        }
+
+        /* 6. scale() for resizing */
+        .scale {
+            background-color: #20b2aa; /* Light sea green */
+            transform: scale(1.1); /* Scales element up by 10% */
+            transition: transform 0.3s;
+        }
+
+        .scale:hover {
+            transform: scale(1.2); /* Further increases size on hover */
+        }
+
+        /* 7. rotate() for rotation effects */
+        .rotate {
+            background-color: #d2691e; /* Chocolate */
+            color: white;
+            transform: rotate(15deg);
+        }
+
+        /* 8. translate() for movement along X and Y axes */
+        .translate {
+            background-color: #6495ed; /* Cornflower blue */
+            color: white;
+            transform: translate(10px, 10px);
+        }
+        /* 9. Rotate on Hover */
+        .box2.rotate:hover {
+            transform: rotate(180deg); /* Rotate 20 degrees */
+        }
+
+        /* 10. Translate on Hover */
+        .box2.translate:hover {
+            transform: translateX(220px) translateY(110px); /* Move 20px right, 10px down */
+        }
+
+        /* 11. Fade out on Hover */
+        .box2.fade:hover {
+            opacity: 0.5; /* Reduce opacity to 50% */
+        }
+
+        /* 12. Combined Animation (Scale + Rotate) */
+        .box2.combo:hover {
+            transform: scale(1.16) rotate(-15deg); /* Scale up by 10% and rotate -15 degrees */
+        }
+
+        /* 13. Bounce Animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            25%{
+                transform: translateY(20px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .box2.bounce:hover {
+            animation: bounce 0.6s infinite; /* Repeated bounce effect */
+        }
+
+     /* 14. Zoom In and Out */
+    .zoom-in-out {
+      padding: 20px;
+      background-color: #ff6b6b;
+      color: white;
+      font-size: 20px;
+      border-radius: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .zoom-in-out:hover {
+      transform: scale(1.1);
+    }
+
+    /* 15. Text Gradient Animation */
+    .gradient-text {
+      font-size: 36px;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff6b6b, #ffcc00, #1b9b8b, #ff6b6b);
+      background-size: 400% 400%;
+      animation: gradientAnimation 4s ease infinite;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+        
+    </style>
+</head>
+<body>
+
+    <div class="containers">
+             <div class="container">
+        
+            <div class="box skew-example">Skewed Box with skew()</div>
+            <div class="box shadow-box">Box Shadow with box-shadow()</div>
+            <div class="text-shadow">Text Glow with text-shadow()</div>
+             <div class="box gradient">Gradient background with linear-gradient()</div>
+             <div class="box scale">Scale effect with scale()</div>
+           </div>
+    
+         <div class="different">
+            
+                <div class="box2 rotate">rotate() for rotation effects</div>
+                <div class="box2 translate">Translate</div>
+                <div class="box2 fade">Fade out on Hover </div>
+                <div class="box2 combo">Combo (Scale + Rotate)</div>
+                <div class="box2 bounce">Bounce Animation</div>
+                <div class="zoom-in-out">Hover to Zoom In & Out</div>
+                <div class="gradient-text">Animated Gradient Text</div>
+    
+               </div>
+    </div>
+
+</body>
+</html>
+
